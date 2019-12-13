@@ -15,6 +15,9 @@ class CreateReportthreatsTable extends Migration
     {
         Schema::create('reportthreats', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->integer('user_id');
+            $table->string('title');
+            $table->text('reportbody');
             $table->timestamps();
         });
     }
