@@ -145,8 +145,8 @@
 				  		<div class="col-6 top-head-right">
 				  			<ul>
 				  				<li><a href="tel:+23906-856-2247"><span>+23906-856-2247</span> <span class="lnr lnr-phone-handset"></span></a></li>
-				  				<li><a href="#">Login</a></li>
-				  				<li><a href="#">Register</a></li>
+							  <li><a href="{{route('login')}}">Login</a></li>
+				  				<li><a href="{{route('register')}}">Register</a></li>
 				  			</ul>
 				  		</div>			  			
 			  		</div>
@@ -155,7 +155,7 @@
 			    <div class="container">
 			    	<div class="row align-items-center justify-content-between d-flex">
 				      <div id="logo">
-				        <a href="index.html"><img src="{{asset('bootstrap_assets/img/logo.png')}}" alt="" title="" /></a>
+				        <a href="{{route('index')}}"><img src="{{asset('bootstrap_assets/img/logo.png')}}" alt="" title="" /></a>
 				      </div>
 				      <nav id="nav-menu-container">
 				        <ul class="nav-menu">
@@ -185,11 +185,11 @@
 					<div class="row fullscreen d-flex align-items-center justify-content-start">
 						<div class="banner-content col-lg-9">
 							{{-- <h6 class="text-white">Openning on 21st February, 2018</h6> --}}
-							<h1 class="text-white">
-								Offering Security in Campus				
-							</h1>
+							<h2 class="text-white">
+								Managing Campus Security Issues				
+							</h2>
 							<p class="pt-20 pb-20 text-white">
-								Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim.  sed do eiusmod tempor incididunt..
+								Providing solutions to campus security matters effectively and efficiently.
 							</p>
 							<a href="#" class="primary-btn text-uppercase">Report Threat</a>
 						</div>											
@@ -256,7 +256,7 @@
 
 
 			<!-- Start feature Area -->
-			<section class="feature-area section-gap" id="feature">
+			{{-- <section class="feature-area section-gap" id="feature">
 				<div class="container">
 					<div class="row d-flex justify-content-center">
 						<div class="col-md-8 pb-40 header-text">
@@ -317,7 +317,7 @@
 						</div>						
 					</div>
 				</div>	
-			</section>
+			</section> --}}
 			<!-- End feature Area -->				
 
 							
