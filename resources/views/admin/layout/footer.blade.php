@@ -1,6 +1,6 @@
 <footer class="main-footer">
   <div class="pull-right hidden-xs">
-    Powered by Onwuchay Richard - 2017/HND//CS.
+    Powered by Onwuchay Chinemerem Richard - 2017/HND/23396/CS.
   </div>
   <strong>Copyright &copy; 2019 campusecurity</strong> All rights
   reserved.

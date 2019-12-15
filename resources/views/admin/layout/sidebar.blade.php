@@ -35,7 +35,7 @@
 
       <li><a href="{{route('department.index')}}"><i class="fa fa-th"></i> Departments</a></li>
       <li><a href="{{route('reportthreat.index')}}"><i class="fa fa-bug"></i> Reported Threats</a></li>
-      <li><a href="{{route('reportcase.index')}}"><i class="fa fa-tags"></i> Reported Cases</a></li>
+      {{-- <li><a href="{{route('reportcase.index')}}"><i class="fa fa-tags"></i> Reported Cases</a></li> --}}
       <li><a href="{{route('statement.index')}}"><i class="fa fa-file"></i> Statements</a></li>
       <li><a href="{{route('staff.index')}}"><i class="fa fa-bullseye"></i> Security Staff</a></li>
       
