@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Department;
 use App\User;
+use Auth;
 use Illuminate\Http\Request;
 
 class StaffController extends Controller
@@ -14,7 +16,12 @@ class StaffController extends Controller
      */
     public function index()
     {
-        //
+        $user = Auth::user();
+        $staffs = User::where('role_id', '2')->orderBy('created_at','desc')->get();
+        $departments = Department::orderBy('name', 'asc')->get();
+
+
+        return view('admin.staff.index', compact('user', 'staffs', 'departments'));
     }
 
     /**
@@ -71,7 +78,11 @@ class StaffController extends Controller
      */
     public function show($id)
     {
-        //
+        $staffs=User::find($id);
+        // $staffcourses=Course::where('user_id',$id)->get();
+        $departments = Department::orderBy('name', 'asc')->get();
+        
+        return view('admin.staff.show',array('user'=>Auth::user()),compact('staffs','departments'));
     }
 
     /**
