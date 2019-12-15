@@ -33,11 +33,13 @@
 
       {{-- @if (Auth::user()->role->id==1||Auth::user()->role->id==3) --}}
 
-      <li><a href="{{route('category.index')}}"><i class="fa fa-th"></i> Category</a></li>
-      <li><a href="{{route('advert.index')}}"><i class="fa fa-bullhorn"></i> Adverts</a></li>
-      <li><a href="{{route('ministry.index')}}"><i class="fa fa-building-o"></i> Ministry</a></li>
-      <li><a href="{{route('bidding.index')}}"><i class="fa fa-tags"></i> Biddings</a></li>
-
+      <li><a href="{{route('department.index')}}"><i class="fa fa-th"></i> Departments</a></li>
+      <li><a href="{{route('reportthreat.index')}}"><i class="fa fa-bug"></i> Reported Threats</a></li>
+      <li><a href="{{route('reportcase.index')}}"><i class="fa fa-tags"></i> Reported Cases</a></li>
+      <li><a href="{{route('statement.index')}}"><i class="fa fa-file"></i> Statements</a></li>
+      <li><a href="{{route('staff.index')}}"><i class="fa fa-bullseye"></i> Security Staff</a></li>
+      
+      
       {{-- <li class="treeview">
         <a href="#">
           <i class="fa fa-cubes"></i>

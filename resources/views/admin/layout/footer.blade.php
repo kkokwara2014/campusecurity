@@ -1,8 +1,8 @@
 <footer class="main-footer">
   <div class="pull-right hidden-xs">
-    Powered by Oluchukwu Peter - 2017/HND//CS.
+    Powered by Onwuchay Richard - 2017/HND//CS.
   </div>
-  <strong>Copyright &copy; 2019 contractbidder</strong> All rights
+  <strong>Copyright &copy; 2019 campusecurity</strong> All rights
   reserved.
 </footer>
 

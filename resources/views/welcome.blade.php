@@ -191,7 +191,7 @@
 							<p class="pt-20 pb-20 text-white">
 								Providing solutions to campus security matters effectively and efficiently.
 							</p>
-							<a href="#" class="primary-btn text-uppercase">Report Threat</a>
+						<a href="{{route('reportthreat.create')}}" class="primary-btn text-uppercase">Report Threat</a>
 						</div>											
 					</div>
 				</div>					

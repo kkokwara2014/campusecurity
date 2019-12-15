@@ -2,13 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use App\Department;
+use App\Location;
+use App\Statement;
+use App\User;
 use Illuminate\Http\Request;
-
 use Auth;
 
-
-class DepartmentController extends Controller
+class StatementController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -18,9 +18,11 @@ class DepartmentController extends Controller
     public function index()
     {
         $user = Auth::user();
-        $departments = Department::orderBy('name', 'asc')->get();
+        $locations=Location::orderBy('name','asc')->get();
+        $users=User::where('role_id','2')->orderBy('lastname','asc')->get();
+        $statements=Statement::orderBy('created_at','desc')->get();
 
-        return view('admin.department.index', compact('user', 'departments'));
+        return view('admin.statement.index',compact('statements','users','locations','user'));
     }
 
     /**
@@ -42,13 +44,21 @@ class DepartmentController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-            'name' => 'required|string',
-            'code' => 'required|string',
+            'complainant' => 'required|string',
+            'gender' => 'required|string',
+            'location_id' => 'required',
+            'regnumber' => 'required',
+            'phone' => 'required',
+            'religion' => 'required',
+            'dateofevent' => 'required',
+            'timeofevent' => 'required',
+            'casetype' => 'required',
+            'entry' => 'required',
         ]);
 
-        Department::create($request->all());
+        Statement::create($request->all());
 
-        return redirect(route('department.index'));
+        return redirect(route('statement.index'));
     }
 
     /**
@@ -59,7 +69,12 @@ class DepartmentController extends Controller
      */
     public function show($id)
     {
-        //
+        $user = Auth::user();
+        $locations=Location::orderBy('name','asc')->get();
+        $users=User::where('role_id','2')->orderBy('lastname','asc')->get();
+        $statement=Statement::find($id);
+
+        return view('admin.statement.show',compact('statement','users','locations','user'));
     }
 
     /**
@@ -70,8 +85,7 @@ class DepartmentController extends Controller
      */
     public function edit($id)
     {
-        $departments = Department::where('id', $id)->first();;
-        return view('admin.department.edit', array('user' => Auth::user()), compact('departments'));
+        //
     }
 
     /**
@@ -83,18 +97,7 @@ class DepartmentController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $this->validate($request, [
-            'name' => 'required|string',
-            'code' => 'required|string',
-        ]);
-
-        $department = Department::find($id);
-        $department->name = $request->name;
-        $department->code = $request->code;
-
-        $department->save();
-
-        return redirect(route('department.index'));
+        //
     }
 
     /**
@@ -105,7 +108,6 @@ class DepartmentController extends Controller
      */
     public function destroy($id)
     {
-        $departments = Department::where('id', $id)->delete();
-        return redirect()->back();
+        //
     }
 }

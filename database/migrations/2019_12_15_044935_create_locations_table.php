@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateReportthreatsTable extends Migration
+class CreateLocationsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,9 @@ class CreateReportthreatsTable extends Migration
      */
     public function up()
     {
-        Schema::create('reportthreats', function (Blueprint $table) {
+        Schema::create('locations', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->integer('user_id');
-            $table->string('title');
-            $table->string('crimescene');
-            $table->text('reportbody');
+            $table->string('name');
             $table->timestamps();
         });
     }
@@ -30,6 +27,6 @@ class CreateReportthreatsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('reportthreats');
+        Schema::dropIfExists('locations');
     }
 }

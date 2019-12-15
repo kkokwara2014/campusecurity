@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Auth;
 
+use App\Department;
 use App\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
@@ -74,8 +75,10 @@ class RegisterController extends Controller
 
     public function showRegistrationForm()
     {
-        return view('auth.register');
+        $departments=Department::orderBy('name','asc')->get();
+        return view('auth.register',compact('departments'));
     }
+
 
     public function register(Request $request)
     {
@@ -86,6 +89,7 @@ class RegisterController extends Controller
             'email' => 'required|email|unique:users',
             'phone' => 'required',
             'identity' => 'required',
+            'department_id' => 'required',
             'password' => 'required|string|min:6|confirmed',
         ]);
 
@@ -97,6 +101,7 @@ class RegisterController extends Controller
         $user->email = $request->email;
         $user->password = bcrypt($request->password);
         $user->role_id = $request->role_id;
+        $user->department_id = $request->department_id;
         
 
         $user->save();
