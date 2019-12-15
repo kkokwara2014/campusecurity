@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Reportthreat;
 use Illuminate\Http\Request;
 
 class ReportthreatController extends Controller
@@ -34,7 +35,16 @@ class ReportthreatController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+            'user_id' => 'required',
+            'title' => 'required',
+            'crimescene' => 'required',
+            'reportbody' => 'required',
+        ]);
+
+        Reportthreat::create($request->all());
+
+        return redirect(route('reportthreat.index'));
     }
 
     /**
