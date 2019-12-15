@@ -59,6 +59,8 @@ if ($timeIt > date('Y-m-d')) {
         Route::resource('reportcase', 'ReportcaseController');
         Route::resource('statement', 'StatementController');
         Route::resource('staff', 'StaffController');
+
+        Route::get('report/threat', 'FrontController@reportthreat')->name('reportthreat');
         
        
         Route::get('user/profile', 'UserController@profileimage')->name('user.profile');

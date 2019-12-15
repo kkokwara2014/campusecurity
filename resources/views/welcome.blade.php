@@ -145,7 +145,17 @@
 				  		<div class="col-6 top-head-right">
 				  			<ul>
 				  				<li><a href="tel:+23906-856-2247"><span>+23906-856-2247</span> <span class="lnr lnr-phone-handset"></span></a></li>
-							  <li><a href="{{route('login')}}">Login</a></li>
+								  @if (auth()->check())
+								  <li>
+									  <a class="nav-link" href="{{ route('logout') }}">Logout</a>
+								  </li>
+	  
+								  @else
+								  <li>
+									  <a class="nav-link" href="{{ route('login') }}">Login</a>
+								  </li>
+								  @endif
+							
 				  				<li><a href="{{route('register')}}">Register</a></li>
 				  			</ul>
 				  		</div>			  			
@@ -191,7 +201,14 @@
 							<p class="pt-20 pb-20 text-white">
 								Providing solutions to campus security matters effectively and efficiently.
 							</p>
-						<a href="{{route('reportthreat.create')}}" class="primary-btn text-uppercase">Report Threat</a>
+
+							@if (auth()->check())
+							<a href="{{route('reportthreat.create')}}" class="primary-btn text-uppercase">Report Threat</a>
+							
+							@else
+							<a href="{{route('login')}}" class="primary-btn text-uppercase">Report Threat</a>
+								
+							@endif
 						</div>											
 					</div>
 				</div>					
@@ -331,7 +348,7 @@
 							<div class="single-footer-widget">
 								<h6>About Us</h6>
 								<p>
-									Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore dolore magna aliqua.
+									Providing solutions to campus security matters effectively and efficiently.
 								</p>
 								<p class="footer-text">
 									<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
