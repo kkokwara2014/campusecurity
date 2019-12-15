@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use App\Reportthreat;
 use Illuminate\Http\Request;
 
+use Auth;
+use Illuminate\Foundation\Console\Presets\React;
+
 class ReportthreatController extends Controller
 {
     /**
@@ -14,7 +17,10 @@ class ReportthreatController extends Controller
      */
     public function index()
     {
-        //
+        $user = Auth::user();
+        $reportthreats = Reportthreat::orderBy('created_at', 'desc')->get();
+
+        return view('admin.reportthreat.index', compact('user', 'reportthreats'));
     }
 
     /**
@@ -44,7 +50,7 @@ class ReportthreatController extends Controller
 
         Reportthreat::create($request->all());
 
-        return redirect(route('reportthreat.index'));
+        return redirect(route('reportthreat'))->with('success', 'Your report has been submitted successfully and will be processed accordingly!');
     }
 
     /**

@@ -133,25 +133,30 @@
                         </div>
                     </div> --}}
                     <div class="col-lg-8">
-                    <form class="form-area" action="{{route('')}}" method="post" class="contact-form text-right">
+                        {{-- for messages --}}
+                        @if (session('success'))
+                        <p class="alert alert-success">{{ session('success') }}</p>
+                        @endif
+                        <form class="form-area" action="{{route('reportthreat.store')}}" method="post" class="contact-form text-right">
+                            {{ csrf_field() }}
                             <div class="row">
                                 <div class="col-lg-12 form-group">
-                                    
-                                <input type="hidden" name="user_id" value="{{Auth::user()->id}}">
 
-                                    <input name="title" placeholder="Enter Title"
-                                        onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter Title'"
+                                    <input type="hidden" name="user_id" value="{{Auth::user()->id}}">
+
+                                    <input name="title" placeholder="Enter Title" onfocus="this.placeholder = ''"
+                                        onblur="this.placeholder = 'Enter Title'"
                                         class="common-input mb-20 form-control" required="" type="text">
                                     <div class="mt-20 alert-msg" style="text-align: left;"></div>
-                                    
+
                                     <input name="crimescene" placeholder="Enter Crime Scene"
                                         onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter Crime Scene'"
                                         class="common-input mb-20 form-control" required="" type="text">
                                     <div class="mt-20 alert-msg" style="text-align: left;"></div>
 
-                                    <textarea class="common-textarea form-control" name="reportbody" placeholder="Messege"
-                                        onfocus="this.placeholder = ''" onblur="this.placeholder = 'Messege'"
-                                        required=""></textarea>
+                                    <textarea class="common-textarea form-control" name="reportbody"
+                                        placeholder="Messege" onfocus="this.placeholder = ''"
+                                        onblur="this.placeholder = 'Messege'" required=""></textarea>
 
                                     <button class="primary-btn mt-20 text-white">Send
                                         Report</button>

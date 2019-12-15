@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\User;
 use Illuminate\Http\Request;
 
 class StaffController extends Controller
@@ -34,7 +35,32 @@ class StaffController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+            'lastname' => 'required|string',
+            'firstname' => 'required|string',
+           
+            'email' => 'required|email|unique:users',
+            'phone' => 'required',
+            'identity' => 'required',
+            'department_id' => 'required',
+            'password' => 'required|string|min:6|confirmed',
+        ]);
+
+        $user = new User;
+        $user->lastname = $request->lastname;
+        $user->firstname = $request->firstname;
+        $user->phone = $request->phone;
+        $user->identity = $request->identity;
+        $user->email = $request->email;
+        $user->department_id = $request->department_id;
+        
+        $user->password = bcrypt($request->password);
+        $user->role_id = $request->role_id;
+        
+
+        $user->save();
+
+        return redirect(route('staff.index'));
     }
 
     /**
